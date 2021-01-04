@@ -1,0 +1,26 @@
+{% extends "auctions/layout.html" %}
+{% load static %}
+
+{% block title %} Checkout {% endblock %}
+
+{% block body %}
+    <div class="container-fluid">
+        {% for listing in won_bids %}
+                <div class="col-lg-3">
+                    
+                        <div class="list-group-item">       
+                            {% if listing.image %}
+                                <img src="{{listing.image}}" alt="{{listing.item_name}}" style="width:100px;height:100px">
+                            {% else %}
+                                <img src={% static "images/white.png" %} alt="{{listing.item_name}}" style="width:100px;height:100px">
+                            {% endif %}
+                            <div><strong>{{listing.item_name}}</strong></div>
+                            <div><strong>$ {% firstof listing.highest_bid|floatformat:"2" listing.bid_price %} </strong></div>  
+                            <div style="color:green"> <strong> PAID </strong>  </div> 
+                            <div style="color:red"> <strong> DELIVERY PENDING </strong>  </div>  
+                        </div>  
+                    
+                </div>
+        {% endfor %}
+    </div>
+{% endblock %}

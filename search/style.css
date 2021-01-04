@@ -1,0 +1,145 @@
+
+.logo{
+    height: 26%;
+    left:0;
+    right: 100px;
+    line-height: 200px;
+    margin-top: -100px;
+    position: absolute;
+    text-align:center; 
+    top: 30%;
+    width: 100%;
+   
+}
+
+.search{
+    
+    left:0;
+    right: 100px;
+    line-height: 50px;
+    position: absolute;
+    text-align:center; 
+    top: 42%;
+    width: 100%;
+}
+
+.links{
+    color: rgba(0, 0, 0, 0.87);
+    text-align:right;
+    line-height: 24px;
+    text-decoration: none; 
+    white-space: nowrap;
+    min-width: 165px;
+    position: relative;
+    align-items: center;
+  
+}
+
+.input_space, #input_space{
+    text-align: left;
+    background-color: transparent;
+    border: 1px solid #dfe1e5;
+    word-wrap: break-word;
+    height: 20px;
+    border-radius: 24px;
+    z-index: 3;
+    font-size: 16px;
+    padding: 10px;
+    width: 582px;
+    min-height: 24px;
+    min-width: 10%;
+    outline: none;
+    
+}
+
+.buttons,.RNmpXc{
+    background-color: #f2f2f2;
+    border: 1px solid #f2f2f2;
+    border-radius: 4px;
+    color: #5F6368;
+    font-family: arial,sans-serif;
+    font-size: 14px;
+    margin: 11px 4px;
+    padding: 0 16px;
+    line-height: 27px;
+    height: 36px;
+    min-width: 54px;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    margin-top: 25px;
+    outline: none;
+  
+}
+
+#first_section{
+    height: 60px;
+    background-color: #f1f1f1;
+    border-bottom: 1px solid #d9d9d9 ;
+    margin-top: -8px;
+}
+
+#second_section{
+    font-size: 20px;
+    height: 40px;
+    padding: 20px;
+    text-align: left;
+    border-bottom: 1px solid #d9d9d9;
+    
+}
+
+#third_section{
+    margin: 20px;
+    text-align: left;
+    margin-top: 4%;
+}
+
+.par_input {
+    
+    width: 85%;
+    margin-left:196px;
+    margin-top: -25px;
+    min-width: 10%;
+    
+    
+}
+
+
+.par_input input{ 
+    border-radius: 1px;
+    border: 1px solid #d9d9d9;
+    border-top: 1px solid #c0c0c0;
+    font-size: 13px;
+    height: 25px;
+    width: 50%;
+    text-align: left;
+    outline: none;
+    
+    
+}
+
+
+.words{
+    vertical-align: baseline;
+    text-decoration: none;
+    width: 195px;
+}
+
+#advanced_button{
+    align-self: center;
+    border: 1px solid blue;
+    font-size: 11px;
+    font-weight: bold;
+    color:white;
+    background-color:#3079ed;
+
+    border-radius: 2px;
+    white-space: nowrap;
+    margin-right: 16px;
+    height: 27px;
+    line-height: 27px;
+    min-width: 54px;
+    outline: #3079ed;
+    
+}
+

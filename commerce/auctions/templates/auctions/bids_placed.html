@@ -1,0 +1,47 @@
+{% extends 'auctions/layout.html' %}
+
+{% block title %} My bids  {% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid">
+        {% for key,value in my_bids.items %}
+
+            <div class="col-sm-4">
+                    <a class="btn" href="{% url 'listing' listing_id=value.1.id %}">
+                        <input name="listing_id" value="{{value.1.id}}" hidden readonly>
+                        <div style="width:172px;height:172">
+                            {% if value.1.image %}
+                                <img src="{{value.1.image}}" alt="{{value.1.item_name}}" style="width:50px;height:50">
+                            {% endif %}
+                        </div>
+
+                        {% if value.1.active%}
+                        
+                            <strong>{{key}} : ${{value.0}}</strong> 
+                            <h6 style="color:green">active</h6>
+
+                        {% else %}
+                            <strong> {{key}} : ${{value.0}} </strong>
+                            <h6 style="color:red">Inactive</h6>
+
+                            {% if value.1.winner.id == user.id %}
+                                (You Won)
+                            {% else %}
+                                (You didn't win)
+                            {% endif %}
+                        {% endif %}
+                    </a>
+
+                     <!--
+                        {% if value.1.active%}
+                            <button> Delete Bid </button>
+                        {% endif %}
+                     -->
+            </div>
+
+        {% endfor %}
+    </div>
+
+
+{% endblock %}

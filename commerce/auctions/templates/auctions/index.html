@@ -1,0 +1,53 @@
+{% extends "auctions/layout.html" %}
+{% load static %}
+
+{% block title %} {{title}} {% endblock %}
+
+{% block body %}
+    {% if categories %}
+        <div style="padding-left:40px">
+            <div class="dropdown" >
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                Categories
+                </button>
+                <div class="dropdown-menu">
+                    {% if title == "All Listings" %}
+                        <a class="dropdown-item active"  href="{% url 'index' %}"> ALL </a> 
+                    {% else %}
+                        <a class="dropdown-item "  href="{% url 'index' %}"> ALL </a> 
+                    {% endif %}
+
+                    {% for category in categories %}
+                        {% if category == title %}
+                            <a class="dropdown-item active"  href="{% url 'category' category=category %}"> {{category}} </a> 
+                        {% else %}
+                            <a class="dropdown-item"  href="{% url 'category' category=category %}"> {{category}} </a> 
+                        {% endif %}        
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    {% endif %}
+        
+    <div class="container">
+        <div class="row">
+            {% for listing in Active_Listings %}
+                <div class="col-lg-4 col-md-6 col-xs-12" style="padding-top:30px;">
+                    <a class="btn "  href="{% url 'listing' listing_id=listing.id %}">
+                        <div class="list-group-item" style="width:200px;height:250px">       
+                            {% if listing.image %}
+                                <img src="{{listing.image}}" alt="{{listing.item_name}}" style="width:100px;height:100px">
+                            {% else %}
+                                <img src={% static "images/white.png" %} alt="{{listing.item_name}}" style="width:100px;height:100px">
+                            {% endif %}
+                            <div style="height:50px;overflow:hidden;"><strong>{{listing.item_name}}</strong></div>
+                            <div style="height:35px;overflow:hidden;font-size:small;white-space:nowrap;"><p>{{listing.item_description}}</p></div>
+                            <div style="height:50px;overflow:hidden;"><strong>$ {% firstof listing.highest_bid|floatformat:"2" listing.bid_price %} </strong></div>  
+                            <div style="font-size: x-small;height:15px">Created on {{listing.timestamp}}</div>  
+                        </div>  
+                    </a>                
+                </div>
+            {% endfor %}
+        </div>    
+    </div>
+{% endblock %}

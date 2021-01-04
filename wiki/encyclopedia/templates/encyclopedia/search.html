@@ -1,0 +1,26 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    {{initial_search}}
+{% endblock %}
+
+{% block  body%}
+    <div class="division">
+        <div>{{ page|safe }}</div>
+
+        {% if can_edit %}
+            <form action={% url 'encyclopedia:edit' %} method ="GET">
+                <input value="{{initial_search}}" type="text" name="old_content" hidden="True" readonly>
+                <input type="submit" value="EDIT">
+
+            </form>  
+        {% endif %} 
+
+        <ul style="margin-top:50px">        
+            {% for wiki in wikis %}
+                <li style="margin-bottom:20px"><a href="{% url 'encyclopedia:page' name=wiki %}" > {{ wiki }} </a></li>
+            {% endfor %}
+
+        </ul>
+    </div>
+{% endblock %}

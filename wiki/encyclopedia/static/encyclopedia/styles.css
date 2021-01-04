@@ -1,0 +1,38 @@
+body {
+    background-color: white;
+}
+
+code {
+    white-space: pre;
+}
+
+textarea {
+    height: 60vh;
+    width: 80%;
+}
+
+.main {
+    padding: 10px;
+}
+
+.search {
+    width: 100%;
+    font-size: 15px;
+    line-height: 15px;
+}
+
+.sidebar {
+    background-color: #f0f0f0;
+    height: 4000px;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    margin-top: 5px;
+}
+
+
+.division{
+    margin-top: 50px;
+    margin-left: 30px;
+}

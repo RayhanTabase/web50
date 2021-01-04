@@ -1,0 +1,35 @@
+{% extends "network/layout.html" %}
+{% load static %}
+
+
+{%block script%}
+    <script type="text/babel"  src="{% static 'network/index.js' %}"></script> 
+{% endblock %}
+
+
+
+{% block body %}
+    {% if user.is_authenticated %} 
+        <div class="center_division" id="create_comment">   
+            <form id="create_post" action="{% url 'createPost' %}" method="POST" >
+                {% csrf_token %}
+                <div style="background: #FCFCFC;padding: 20px 22px;border-bottom: 1px solid #E5E5E5;overflow: hidden;">
+                    <div class="form-group">
+                        
+                        <textarea style="padding:20px" class="form-control" id="post_text" name="new_post" placeholder="Create a new post"></textarea>
+                    
+                    </div>
+                    <button type="submit" class="btn btn-primary">Post</button>
+                </div>
+            </form>
+        </div>
+
+    {% endif %}
+                
+    <div class="comments-container">
+        <ul id="posts_view" class="comments-list"></ul>
+    </div>
+    
+
+{% endblock %}
+

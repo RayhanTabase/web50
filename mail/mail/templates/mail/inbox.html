@@ -1,0 +1,58 @@
+{% extends "mail/layout.html" %}
+{% load static %}
+
+
+{% block script %}
+    <script src="{% static 'mail/inbox.js' %}"></script>
+{% endblock %} 
+
+{% block body %}
+    <h2>{{ request.user.email }}</h2>
+
+    <button class="btn btn-sm btn-outline-primary" id="inbox">Inbox</button>
+    <button class="btn btn-sm btn-outline-primary" id="compose">Compose</button>
+    <button class="btn btn-sm btn-outline-primary" id="sent">Sent</button>
+    <button class="btn btn-sm btn-outline-primary" id="archived">Archived</button>
+    <a class="btn btn-sm btn-outline-primary" href="{% url 'logout' %}">Log Out</a>
+    <hr>
+
+    <div id="emails-view">
+    </div>
+
+    <div id="compose-view">
+        <h3>New Email</h3>
+        <div id="compose-form">
+            <div class="form-group">
+                From: <input disabled class="form-control" value="{{ request.user.email }}">
+            </div>
+            <div class="form-group">
+                To: <input id="compose-recipients" class="form-control" required>
+            </div>
+            <div class="form-group">
+                <input class="form-control" id="compose-subject" placeholder="Subject">
+            </div>
+            <textarea class="form-control" id="compose-body" placeholder="Body" style="margin-bottom:10px"></textarea>
+            <input type="submit" class="btn btn-primary" id="submit-mail"/>
+        </div>
+    </div>
+    
+    <div id="main-mail-view"> 
+
+        <div id="mail-archive-button"></div>
+
+        <div class="list-group-item" style="background-color:bisque; margin-top:5px; padding-left:10px">
+            <div style="overflow:hidden;"> <strong>From:</strong> <span id="mail-sender"></span></div>
+            
+            <div style="overflow:hidden;"> <strong>Subject: </strong>    <span  id="mail-subject"></span>    </div>
+            <div style="overflow:hidden;"> <strong>To: </strong>         <span  id="mail-recipients"></span> </div>  
+            <div style="overflow:hidden;"> <strong>Timestamp: </strong>  <span  id="mail-timestamp"></span>  </div> 
+        </div>
+        
+        <div id="mail-reply-button" style = " margin-top:10px"></div>
+        
+        <div class="card" style="background-color:azure;margin-top:20px">
+            <div class="card-body" style="margin-top:60px; min-height:100px; padding: .375rem .75rem" id="mail-body"></div>
+        </div>
+    </div>
+{% endblock %}
+
