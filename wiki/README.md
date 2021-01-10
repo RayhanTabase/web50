@@ -1,1 +1,1 @@
-a google search clone
+a wikipedia like site 
